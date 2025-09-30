@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/WeatherApp.css";
 
 export default function WeatherApp() {
   const [city, setCity] = useState("");
@@ -43,20 +44,24 @@ export default function WeatherApp() {
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "2rem" }}>
+    <div className="weather-app">
       <h1>Weather App</h1>
-      <input
-        type="text"
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-        placeholder="Enter city"
-      />
-      <button onClick={fetchWeather}>Search</button>
+      <div className="search-container">
+        <div className="search-input">
+            <input
+                type="text"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+                placeholder="Enter city"
+            />
+        </div>
+        <button onClick={fetchWeather}>Search</button>
+      </div>
 
       {error && <p style={{ color: "red" }}>{error}</p>}
 
       {weather && (
-        <div>
+        <div className="weather-result">
           <h2>
             {weather.city}, {weather.country}
           </h2>
