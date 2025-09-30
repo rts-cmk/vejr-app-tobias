@@ -6,7 +6,7 @@ export default function WeatherApp() {
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState("");
 
-  const apiKey = import.meta.env.VITE_API_KEY;
+  const API_KEY = import.meta.env.VITE_API_KEY;
   
   const fetchWeather = async () => {
     try {
@@ -14,7 +14,7 @@ export default function WeatherApp() {
       setWeather(null);
 
       const geoRes = await fetch(
-        `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`
+        `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${API_KEY}`
       );
       const geoData = await geoRes.json();
       if (!geoData.length) {
@@ -24,7 +24,7 @@ export default function WeatherApp() {
       const { lat, lon, name, country } = geoData[0];
 
       const weatherRes = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
       );
       const weatherData = await weatherRes.json();
 
