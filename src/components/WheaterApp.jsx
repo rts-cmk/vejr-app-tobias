@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "../styles/WeatherApp.css";
+import Search from "./Search";
+import WeatherDisplay from "./WeatherDisplay"
 
 export default function WeatherApp() {
   const [city, setCity] = useState("");
@@ -44,38 +46,14 @@ export default function WeatherApp() {
   };
 
   return (
-    <div className="weather-app">
-      <h1>Weather App</h1>
-      <div className="search-container">
-        <div className="search-input">
-            <input
-                type="text"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-                placeholder="Enter city"
-            />
-        </div>
-        <button onClick={fetchWeather}>Search</button>
-      </div>
-
-      {error && <p style={{ color: "red" }}>{error}</p>}
-
-      {weather && (
-        <div className="weather-result">
-          <h2>
-            {weather.city}, {weather.country}
-          </h2>
-          <p>Temp: {weather.temp} °C</p>
-          <p>Wind: {weather.wind} m/s </p>
-          <p>
-            Cordinates: {weather.lat}, {weather.lon}
-          </p>
-          <img
-            src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`}
-            alt="Weather icon"
-          />
-        </div>
-      )}
+    <div className="weather_app">
+        <h1>Weather App</h1>
+        <Search 
+            city={city}
+            onCityChange={setCity}
+            onSearch={fetchWeather}
+        />
+        <WeatherDisplay weather={weather} error={error} />
     </div>
   );
 }
