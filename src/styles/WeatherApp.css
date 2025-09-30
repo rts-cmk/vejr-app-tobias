@@ -1,0 +1,39 @@
+.search-container {
+    display: flex;
+}
+
+.search-container button {
+    border-radius: 0.5rem;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+}
+
+.search-input {
+    display: flex;
+    align-items: center;
+    padding: 0.85rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.search-input input {
+    padding: 0.5rem;
+}
+
+
+.weather-forecast { 
+    margin-top: 20px; 
+} 
+    
+.forecast-grid {
+     display: flex; 
+     gap: 20px;
+} 
+
+.forecast-day { 
+    background: #f3f3f3; 
+    border-radius: 12px; 
+    padding: 10px; 
+    text-align: center; 
+    width: 100px; 
+}
