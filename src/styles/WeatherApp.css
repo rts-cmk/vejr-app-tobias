@@ -19,3 +19,22 @@
 .search-input input {
     padding: 0.5rem;
 }
+
+
+.weather-forecast { 
+    margin-top: 20px; 
+} 
+    
+.forecast-grid {
+     display: flex; 
+     gap: 20px; 
+     justify-content: center; 
+} 
+
+.forecast-day { 
+    background: #f3f3f3; 
+    border-radius: 12px; 
+    padding: 10px; 
+    text-align: center; 
+    width: 100px; 
+}
